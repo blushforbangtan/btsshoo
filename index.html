@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BTS Shoo Game 💜</title>
+  <style>
+    body {
+      background: #fceff2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #a04f8a;
+    }
+    button {
+      margin: 8px;
+      padding: 12px 20px;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #a04f8a;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    #finalStep, #loveNote {
+      display: none;
+      margin-top: 30px;
+    }
+    .noteBox {
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💜 BTS Shoo Game 💜</h1>
+  <p>Click on a member to see their excuse and get shooed away!</p>
+
+  <button onclick="showExcuse('jin')">Jin</button>
+  <button onclick="showExcuse('yoongi')">Yoongi</button>
+  <button onclick="showExcuse('hobi')">Hobi</button>
+  <button onclick="showExcuse('namjoon')">Namjoon</button>
+  <button onclick="showExcuse('jimin')">Jimin</button>
+  <button onclick="showExcuse('tae')">Taehyung</button>
+  <button onclick="showExcuse('jk')">Jungkook</button>
+
+  <div id="excuseBox" class="noteBox"></div>
+
+  <button id="nextBtn" onclick="goToFinal()" style="display:none;">Next 💌</button>
+
+  <div id="finalStep">
+    <p>To get your special BTS love note, please pre-save <b>Permission to Dance</b>! 💃✨</p>
+    <button onclick="openPresave()">Pre-save PTD 💜</button>
+    <p>After you pre-save, come back and press below!</p>
+    <button onclick="showLoveNote()">I did it! 💜</button>
+  </div>
+
+  <div id="loveNote" class="noteBox"></div>
+
+  <script>
+    const excuses = {
+      jin: [
+        "I'm busy cooking. Go bother Jungkook!",
+        "Worldwide handsome needs beauty sleep. Go to Yoongi!",
+        "I'm practicing dad jokes. Ask Jimin!"
+      ],
+      yoongi: [
+        "I'm producing beats right now. Try Namjoon!",
+        "I'm napping. Go to Jin!",
+        "Too busy being a genius. Ask Taehyung!"
+      ],
+      hobi: [
+        "I'm dancing in my studio. Try Jimin!",
+        "I'm practicing Sunshine energy. Go to Jungkook!",
+        "I'm decorating my Hope World. Maybe Jin is free!"
+      ],
+      namjoon: [
+        "I'm fixing broken things. Ask Yoongi!",
+        "Lost in a museum. Go to Taehyung!",
+        "Reading books. Try Jin!"
+      ],
+      jimin: [
+        "I'm practicing my moves. Go to Hobi!",
+        "On a video call with Tae. Try Jungkook!",
+        "Eating mochi. Maybe Yoongi is free!"
+      ],
+      tae: [
+        "I'm painting now. Ask Namjoon!",
+        "Walking Yeontan. Go to Jimin!",
+        "Lost in art. Maybe Jin is free!"
+      ],
+      jk: [
+        "At the gym. Try Yoongi!",
+        "Gaming marathon. Ask Jin!",
+        "Filming TikToks. Maybe Jimin is free!"
+      ]
+    };
+
+    const loveNotes = [
+      "💌 You did so well today. Thank you for pre-saving! We purple you! — BTS",
+      "💌 You're the brightest star in our galaxy. Thank you for supporting us! — BTS",
+      "💌 Your love gives us strength. Thank you for always staying with us! — BTS",
+      "💌 ARMY, you're our forever home. Thank you for pre-saving! — BTS",
+      "💌 You mean the world to us. See you soon! — BTS"
+    ];
+
+    function showExcuse(member) {
+      const excuse = excuses[member][Math.floor(Math.random() * excuses[member].length)];
+      document.getElementById("excuseBox").innerText = excuse;
+      document.getElementById("nextBtn").style.display = "inline-block";
+    }
+
+    function goToFinal() {
+      document.getElementById("finalStep").style.display = "block";
+      document.getElementById("excuseBox").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+    }
+
+    function openPresave() {
+      window.open("https://open.spotify.com/prerelease/358phfp6OfvY7nO46mk94z?si=75c7e9d82c3d4a53", "_blank");
+    }
+
+    function showLoveNote() {
+      const note = loveNotes[Math.floor(Math.random() * loveNotes.length)];
+      document.getElementById("loveNote").innerText = note;
+      document.getElementById("loveNote").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
